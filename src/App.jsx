@@ -3,6 +3,7 @@ import { MainLayout } from "./components/MainLayout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HomePage } from "./Pages/HomePage";
 import { NotFoundPage } from "./Pages/NotFoundPage";
+import { QuestionPage } from "./Pages/QuestionPage";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           <Route path="/main" element={<div>Main</div>} />
           <Route path="/addquestion" element={<div>AddQuestion</div>} />
           <Route path="/login" element={<div>Login</div>} />
-          <Route path="/questions/:id" element={<div>qwe</div>} />
+          <Route path="/questions/:id" element={<QuestionPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
