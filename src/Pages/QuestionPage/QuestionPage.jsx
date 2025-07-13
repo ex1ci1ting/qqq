@@ -66,6 +66,7 @@ export const QuestionPage = () => {
             <label htmlFor="">short answer: </label>
             <p className={cls.cardAnswer}>{card.answer}</p>
           </div>
+
           <ul className={cls.cardLinks}>
             Resources:
             {card.resources.map((link, index) => {
