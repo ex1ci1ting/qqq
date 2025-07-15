@@ -58,3 +58,9 @@
   height: 18px;
   accent-color: #16c47f;
 }
+
+.labelForm {
+  gap: 10px;
+  display: flex;
+ align-items: center;
+}

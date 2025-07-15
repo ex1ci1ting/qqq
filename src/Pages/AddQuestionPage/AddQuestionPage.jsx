@@ -5,7 +5,8 @@ import { useActionState } from "react";
 import { DelayFn } from "../../../helpers/DelayFn";
 import { toast } from "react-toastify";
 import { API_URL } from "../../../constants";
-import { Loader } from " ../../components/Loader";
+import { Loader } from "../../components/Loader";
+import { QuestionForm } from "../../components/QuestionForm";
 
 const createCardAction = async (_prevState, formData) => {
   const newQuestions = Object.fromEntries(formData);
@@ -36,92 +37,20 @@ const createCardAction = async (_prevState, formData) => {
 };
 
 const AddQuestionPage = () => {
-  const [formState, formActionState, isPending] = useActionState(
-    createCardAction,
-    { clearForm: true }
-  );
+  const [formState, formAction, isPending] = useActionState(createCardAction, {
+    clearForm: true,
+  });
   return (
     <>
       {isPending && <Loader />}
       <h1 className={cls.formTitle}> Add Question</h1>
       <div className={cls.formContainer}>
-        <form action={formActionState} className={cls.form}>
-          <div className={cls.formControl}>
-            <label htmlFor="questionField">Question :</label>
-            <textarea
-              name="question"
-              id="questionField"
-              cols="30"
-              rows="2"
-              required
-              placeholder="please enter question"
-              defaultValue={"defaultValue"}
-            ></textarea>
-          </div>
-          <div className={cls.formControl}>
-            <label htmlFor="answerField">Short Answer :</label>
-            <textarea
-              name="answer"
-              id="answerField"
-              cols="30"
-              rows="2"
-              required
-              placeholder="please enter a short answer"
-              defaultValue={"defaultValue"}
-            ></textarea>
-          </div>
-          <div className={cls.formControl}>
-            <label htmlFor="descriptionField">Description</label>
-            <textarea
-              name="description"
-              id="descriptionField"
-              cols="30"
-              rows="5"
-              required
-              placeholder="please enter a full description"
-              defaultValue={"defaultValue"}
-            ></textarea>
-          </div>
-          <div className={cls.formControl}>
-            <label htmlFor="resourcesField">Resources</label>
-            <textarea
-              name="resources"
-              id="resourcesField"
-              cols="30"
-              rows="5"
-              required
-              placeholder="please enter a full description"
-              defaultValue={"defaultValue"}
-            ></textarea>
-          </div>
-
-          <div className={cls.formControl}>
-            <label htmlFor="levelField">Level</label>
-            <select name="level" id="levelField">
-              <option disabled value="">
-                Question Level
-              </option>
-              <hr />
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
-          </div>
-
-          <label htmlFor="clearFormField" className={cls.clearFormControl}>
-            <input
-              className={cls.checkbox}
-              type="checkbox"
-              name="clearForm"
-              id="clearFormField"
-              defaultChecked={formState.clearForm}
-            />
-            <span>clear form after submitting ?</span>
-          </label>
-          <br />
-
-          <Button isDisabled={isPending}>Add Question</Button>
-        </form>
+        <QuestionForm
+          formAction={formAction}
+          state={formState}
+          isPending={isPending}
+          submitBtnText="Add Question"
+        />
       </div>
     </>
   );

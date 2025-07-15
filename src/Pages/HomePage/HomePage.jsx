@@ -106,7 +106,7 @@ export const HomePage = () => {
       {/* Блок управления: поиск и сортировка */}
       <div className={cls.controlsContainer} ref={controlRef}>
         <Input value={searchValue} onChange={changeInputHandler} />
-        
+
         <select
           name=""
           id=""
@@ -149,7 +149,7 @@ export const HomePage = () => {
 
       {/* Пагинация или сообщение об отсутствии данных */}
       {filteredCards.length === 0 ? (
-        <p>No cards...</p>
+        <p className={cls.noCards}>No cards...</p>
       ) : (
         <div className={cls.paginationContainer} onClick={paginationHandler}>
           {pagination.map((value) => {

@@ -33,6 +33,12 @@
 
 }
 
+.noCards{
+  display: flex;
+  justify-content: center;
+  font-size: 36px;
+}
+
 @media (max-width: 576px) {
   .controlsContainer {
     flex-wrap: wrap-reverse;
