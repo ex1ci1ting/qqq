@@ -4,6 +4,7 @@ import { Button } from "../Button";
 import ReactLogo from "../../assets/react.svg";
 import { useNavigate } from "react-router-dom";
 import { UseAuth } from "../../../helpers/hooks/UseAuth";
+import { ThemeToggler } from "../../../Features/ThemeToggler";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -22,14 +23,17 @@ export const Header = () => {
       </div>
 
       <div className={cls.headerButtons}>
+        <ThemeToggler />
         {isAuth && (
           <Button isActive={true} onClick={() => navigate("/addquestion")}>
             Add
-          </Button> 
+          </Button>
         )}
 
-        <Button onClick={loginHandler} isActive={!isAuth}>{isAuth ? "Logout" : "Login"}</Button>
+        <Button onClick={loginHandler} isActive={!isAuth}>
+          {isAuth ? "Logout" : "Login"}
+        </Button>
       </div>
     </header>
-  ); 
+  );
 };

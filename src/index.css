@@ -17,6 +17,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.darkLayout {
+  --main-bg-color: #23272f;
+  --text-color: #fff;
+  --btn-bg-color: #575757;
+  --btn-text-color: #ffffff;
+  --card-bg-color: #343a46;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -58,7 +66,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
     --main-bg-color: #fff;
     --text-color: #000;
@@ -68,12 +76,12 @@ button:focus-visible {
   }
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --main-bg-color: #23272f;
     --text-color: #fff;
     --btn-bg-color: #474747;
     --btn-text-color: #fff;
-    --card-bg-color: #343a46;
+    --card-bg-color: #0c327d;
   }
 }
