@@ -1,9 +1,0 @@
-.listWrapper{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
